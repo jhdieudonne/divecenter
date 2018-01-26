@@ -1,0 +1,9 @@
+
+<app-header *ngIf="!router.url.startsWith('/callback')"></app-header>
+
+<!-- Main -->
+<main>
+    <router-outlet></router-outlet>
+</main>
+
+<app-alerts></app-alerts>

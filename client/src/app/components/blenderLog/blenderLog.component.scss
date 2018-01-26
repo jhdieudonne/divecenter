@@ -1,0 +1,29 @@
+.buttonNew {
+    border: none;
+    border-radius: 50%;
+    object-fit: cover;
+    -webkit-user-drag: none;
+    background-color: #F44336;
+    height: 56px;
+    box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+}
+
+.buttonNew img {
+  margin-left: 16px;
+  margin-top: 16px;
+}
+
+.containerButtonNew {
+  position:fixed;
+    bottom:50px;
+    right:50px;
+    height: 56px;
+    width: 56px;
+}
+
+.infoDate {
+    text-align: left;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    margin-top: 5px;
+}

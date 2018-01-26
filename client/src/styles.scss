@@ -1,0 +1,83 @@
+html, body, app-root2 {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.loader:before {
+  content: "";
+  background: url('./assets/img/bg.jpg') top;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.loader:after {
+  content: "";
+  background-color: #000;
+  opacity: .15;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.loader {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  height: 100%
+}
+
+.spinner {
+  height: 75px;
+  width: 75px;
+  animation: rotate 1.5s infinite linear;
+  border: 8px solid #fff;
+  border-right-color: transparent;
+  border-radius: 50%;
+
+}
+
+@keyframes rotate {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
+}
+
+/** No CSS for this example */
+.myBackdrop {
+  // background: red;
+  opacity: .3;
+  background-color: #6f7175;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  position: fixed;
+  top:0;
+
+}
+
+.myClass {
+  background-color: white;
+  z-index: 200;
+
+}
+
+.cdk-global-overlay-wrapper {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 250;
+}
