@@ -1,50 +1,67 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
-import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
-import { AppHeader } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { AppHeader, MenuHeader } from './components/header/header.component';
+import { CallbackComponent } from './directives/callback/callback.component';
+import { BlenderLogComponent } from './components/blenderLog/blenderLog.component';
+import { NewLogComponent } from './components/blenderLog/newLog/newLog.component';
 
 import { AuthService } from './services/auth/auth.service'
-import { HomeComponent } from './components/home/home.component';
-import { BlenderLogComponent } from './components/blenderLog/blenderLog.component';
-
-import { ROUTES } from './app.routes';
-import { CallbackComponent } from './directives/callback/callback.component';
 import { ApiService } from './services/api/api.service';
 import { AlertsDirective } from './directives/alerts/alerts.directive';
 import { AlertsService } from './services/alert/alert.service';
+
+import { IsAuthenticatedGuard } from './guard/auth.guard';
+import { MatSelectModule, MatFormFieldModule, MatInputModule, MatButtonToggleModule, MatToolbarModule, MatButtonModule, MatCardModule, MatListModule, MatIconModule, MatMenuModule, MatSidenavModule } from '@angular/material';
+
+import { SignaturePadModule } from 'angular2-signaturepad';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AppHeader,
-    AlertsDirective,
+    //AlertsDirective,
     HomeComponent,
     BlenderLogComponent,
-    CallbackComponent
+    CallbackComponent,
+    NewLogComponent,
+    MenuHeader
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MDBBootstrapModule.forRoot(),
+    RouterModule.forRoot(ROUTES),
+    MatSelectModule,
+    SignaturePadModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonToggleModule,
+    MatToolbarModule,
     MatButtonModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    RouterModule.forRoot(ROUTES)
+    MatCardModule,
+    MatListModule,
+    MatIconModule,
+    MatMenuModule,
+    BrowserAnimationsModule,
+    MatSidenavModule
   ],
   exports: [
-    MatButtonModule,
-    MatCheckboxModule
+
   ],
-  providers: [AuthService, ApiService, AlertsService],
+  providers: [AuthService, ApiService, AlertsService, IsAuthenticatedGuard],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

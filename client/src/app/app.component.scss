@@ -1,8 +1,19 @@
 main {
   background-color: #efefef;
-  height: auto;
-  min-height: 100%;
-  position: absolute;
-  top: 0;
-  width: 100%;
+  height: 100%;
+}
+
+.mat-sidenav {
+  width: 250px;
+  background-color: #efefef;
+  flex: 1 1 auto;
+}
+
+.mat-sidenav-container {
+  height: 100%;
+  flex: 1 1 auto;
+}
+
+.mat-drawer-backdrop.mat-drawer-shown {
+  background-color: red;
 }

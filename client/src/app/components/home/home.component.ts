@@ -1,5 +1,4 @@
 import { Component, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'home',
@@ -9,6 +8,6 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 export class HomeComponent {
 
-  constructor(public dialog: MatDialog) {}
+  constructor() {}
 
 }

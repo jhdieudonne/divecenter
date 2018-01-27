@@ -9,7 +9,6 @@ export class GenericModel {
 
     constructor(kind: string = '') {
         this.ds = new Datastore({});
-        this.ds.determineBaseUrl_('http://localhost:8081');
         this.kind = kind;
     }
 

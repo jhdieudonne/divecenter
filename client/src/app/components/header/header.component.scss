@@ -7,8 +7,40 @@
 .avatar a {
     padding: 0;
     margin: auto;
+    cursor: pointer;
+    height: 32px;
 }
 
 .avatar {
     display: flex;
+}
+
+.filler {
+    flex: 1 1 auto;
+}
+
+.mat-toolbar {
+    box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+    margin-bottom: 5px;
+    height: 56px;
+}
+
+.sideBarOpener {
+    margin-right: 20px;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+}
+
+.mat-raised-button[disabled] {
+    color: white;
+}
+
+.mat-toolbar .mat-icon {
+    margin-right: 20px;
+    maring-left: 5px;
+}
+
+.mat-icon {
+    justify-content: center;
 }

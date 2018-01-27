@@ -1,7 +1,14 @@
 <div class="container">
+        <mat-list>
+                <mat-list-item><mat-card>TEST</mat-card></mat-list-item>
+                <mat-list-item> <mat-card>test</mat-card> </mat-list-item>
+                <mat-list-item> <mat-card>test</mat-card> </mat-list-item>
+               </mat-list>
     <div class="row mt-5 pt-5">
         
         <div class="col text-center">
+
+
             <div class="infoDate">Aujourd'hui</div>
             <div class="list-group">
                 <a (click)="test()" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -99,56 +106,7 @@
 
     </div>
     <div class="containerButtonNew">
-            <div class="buttonNew" (click)='createNewLog()'><img src='../assets/icon/plus_white_24dp.png'></div>
-          </div>
-</div>
-<div mdbModal #blenderLogInsert="mdb-modal" class="modal fade" id="blenderLogForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-        <div class="modal-dialog cascading-modal" role="document">
-                <!--Content-->
-                <div class="modal-content">
-        
-                    <!--Header-->
-                    <div class="modal-header bg-blue white-text">
-                        <h4 class="title">Création d'un gonflage</h4>
-                        <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="!creationOngoing&&blenderLogInsert.hide()">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <!--Body-->
-                    <div class="modal-body mb-0">
-                        <div class="md-form form-sm">
-                            <i class="fa fa-envelope prefix"></i>
-                            <input mdbActive type="text" id="form19" class="form-control">
-                            <label for="form19">Your name</label>
-                        </div>
-        
-                        <div class="md-form form-sm">
-                            <i class="fa fa-lock prefix"></i>
-                            <input mdbActive type="password" id="form20" class="form-control">
-                            <label for="form20">Your email</label>
-                        </div>
-        
-                        <div class="md-form form-sm">
-                            <i class="fa fa-tag prefix"></i>
-                            <input mdbActive type="text" id="form21" class="form-control">
-                            <label for="form21">Subject</label>
-                        </div>
-        
-                        <div class="md-form form-sm">
-                            <i class="fa fa-pencil prefix"></i>
-                            <textarea mdbActive type="text" id="form8" class="md-textarea mb-0"></textarea>
-                            <label for="form8">Your message</label>
-                        </div>
-        
-                        <div class="text-center mt-1-half" *ngIf="!creationOngoing">
-                            <button (click)="createLog()" class="btn btn-red mb-2 waves-light" mdbRippleRadius>Créer <i class="fa fa-plus ml-1"></i></button>
-                        </div>
-                        <div class="text-center mt-1-half" *ngIf="creationOngoing">
-                            <button class="btn btn-red mb-2 waves-light" mdbRippleRadius>Un instant...</button>
-                        </div>
-        
-                    </div>
-                </div>
-                <!--/.Content-->
-            </div>
+            <div class="buttonNew" (click)='newLog.show()'><img src='../assets/icon/plus_white_24dp.png'></div>
     </div>
+</div>
+<blenderLog-newLog #newLog></blenderLog-newLog>>

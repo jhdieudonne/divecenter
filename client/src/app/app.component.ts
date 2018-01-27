@@ -1,5 +1,4 @@
 import { Component, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { AuthService } from './services/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -10,8 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-  constructor(public dialog: MatDialog, private auth: AuthService, public router: Router) {
-    
+  constructor(public router: Router) {
   }
 
 }

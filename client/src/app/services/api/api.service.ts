@@ -129,10 +129,7 @@ export class ApiService {
         }
         if (err.json().acknowledge && !err.json().acknowledge.message.code) {
           return Observable.throw(err.json());
-        } else if (err.json().acknowledge) {
-          return Observable.throw(err.json().acknowledge.message);
         } else {
-          this.router.navigateByUrl('/subscribe');
           return Observable.throw('Error server');
         }
       });

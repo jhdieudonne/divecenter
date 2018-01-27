@@ -1,27 +1,21 @@
-<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar bg-blue" [containerInside]="false">
-    <logo>
-        <a class="logo navbar-brand" routerLink="subscribe"><strong>Dive Center</strong></a>
-    </logo>
-    <links>
-        <ul class="navbar-nav mr-auto">
+<mat-toolbar color="primary">
+    <span class='sideBarOpener' (click)='this.sidenav.toggle()'>
+        <mat-icon>menu</mat-icon>
+        Dive Center
+    </span>
 
-            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item waves-light" mdbRippleRadius>
-                <a class="nav-link" routerLink="/">Home <span class="sr-only" *ngIf="router.url==='/'">(current)</span></a>
-            </li>
-            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item waves-light" mdbRippleRadius>
-                <a class="nav-link" routerLink="blenderLog">Blender Log <span class="sr-only" *ngIf="router.url==='/blenderLog'">(current)</span></a>
-            </li>
-        </ul>
-        <ul class="navbar-nav nav-flex-icons">
-            <li class="nav-item waves-light" mdbRippleRadius>
-                <a class="nav-link"><i class="fa fa-facebook"></i></a>
-            </li>
-            <li class="nav-item waves-light" mdbRippleRadius>
-                <a class="nav-link"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li class="nav-item waves-light avatar" mdbRippleRadius>
-                <a class="nav-link" (click)='this.logout()'><img [src]='this.profile.picture'  *ngIf='this.profile&&this.profile.picture'/></a>
-            </li>
-        </ul>
-    </links>
-  </mdb-navbar>
+    <menu-header link='/' icon="home" title='Home'></menu-header>
+    <menu-header link='/blenderLog' title='Log Gonflage'></menu-header>
+    <menu-header link='/customers' title='Gestion clients'></menu-header>
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="filler"></span>
+    
+    <span class="avatar">
+        
+        <a class="nav-link" ><img [src]='this.profile.picture' [matMenuTriggerFor]="menu" yPosition="below" *ngIf='this.profile&&this.profile.picture'/></a>
+        <mat-menu #menu="matMenu"  [overlapTrigger]="false">
+                <button mat-menu-item (click)='this.logout()' >Se déconnecter</button>
+              </mat-menu>
+    </span>
+</mat-toolbar>

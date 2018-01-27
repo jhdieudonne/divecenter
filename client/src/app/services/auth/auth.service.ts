@@ -43,7 +43,6 @@ export class AuthService {
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
-    console.log('ici');
   }
 
   public logout(): void {
@@ -62,7 +61,6 @@ export class AuthService {
   }
 
   public getProfile(cb): void {
-    console.log(localStorage.getItem('expires_at'));
     const accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
       return;
