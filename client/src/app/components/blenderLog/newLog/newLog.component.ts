@@ -2,7 +2,7 @@ import { Component, Inject, ViewChild, Input } from '@angular/core';
 import { ApiService } from '../../../services/api/api.service';
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {MAT_DIALOG_DATA} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 
 
@@ -20,7 +20,7 @@ export class NewLogComponent {
 
   creationOngoing: boolean = false;
 
-  constructor(private api: ApiService, fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private api: ApiService, fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<NewLogComponent>) {
     this.log = fb.group({
         'o2': [32, Validators.compose([Validators.min(1),Validators.max(99)])],
         'gaz': ['air', Validators.required],
@@ -38,5 +38,9 @@ export class NewLogComponent {
 
   private createLog() {
     this.creationOngoing=true;
+  }
+
+  public close() {
+    this.dialogRef.close();
   }
 }

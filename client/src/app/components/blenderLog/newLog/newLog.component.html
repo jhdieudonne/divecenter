@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Nouveau gonflage</h2>
+<div class='menu'><span mat-dialog-title>Nouveau gonflage<span class='action'><mat-icon (click)='close()'>close</mat-icon></span></span></div>
 <div class='content' [formGroup]="log">
     <mat-button-toggle-group formControlName='gaz' #gaz>
         <mat-button-toggle  value='air'><div class='max_button'>Air</div></mat-button-toggle>

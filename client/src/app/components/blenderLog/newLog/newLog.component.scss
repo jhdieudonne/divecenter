@@ -13,15 +13,30 @@
     margin-top: 20px;
 }
 
-.mat-dialog-container {
-    padding:0;
-}
+
 
 signature-pad {
     text-align: center;
 }
 
 .content {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.menu {
+    background-color: #0077c2;;
+    padding: 5px;
+    color: white;
+    margin-bottom:20px;
+}
+
+.menu span {
+    margin-bottom: 0px;
+    padding-left: 10px;
+}
+
+.menu .action {
+    float:right;
+    cursor: pointer;
 }
