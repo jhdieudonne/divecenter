@@ -8,7 +8,8 @@
     "preinstall": "npm install tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
-    "startdb": "gcloud beta emulators datastore start"
+    "startdb": "gcloud beta emulators datastore start",
+    "server:dev": "tsc && node dist/index"
   },
   "keywords": [],
   "author": "",

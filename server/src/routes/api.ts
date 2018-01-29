@@ -10,7 +10,7 @@ export class ApiRouter {
     const blenderLogRouter = new genericRouter('blenderLog');
     this.router.use('/shop', shopRouter.router);
     this.router.use('/blenderLog', blenderLogRouter.router);
-
+    this.router.use('/bottle', blenderLogRouter.router);
   }
 }
 

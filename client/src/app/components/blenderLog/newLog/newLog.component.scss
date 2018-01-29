@@ -1,4 +1,27 @@
 
-.btn-group {
-    margin-top: 10px;
+.max_button {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.content>*:not(:first-child) {
+    margin-top: 20px;
+}
+
+.mat-dialog-container {
+    padding:0;
+}
+
+signature-pad {
+    text-align: center;
+}
+
+.content {
+    padding-left: 16px;
+    padding-right: 16px;
 }

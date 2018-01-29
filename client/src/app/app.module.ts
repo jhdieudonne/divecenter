@@ -18,12 +18,11 @@ import { AlertsDirective } from './directives/alerts/alerts.directive';
 import { AlertsService } from './services/alert/alert.service';
 
 import { IsAuthenticatedGuard } from './guard/auth.guard';
-import { MatSelectModule, MatFormFieldModule, MatInputModule, MatButtonToggleModule, MatToolbarModule, MatButtonModule, MatCardModule, MatListModule, MatIconModule, MatMenuModule, MatSidenavModule } from '@angular/material';
+import { MatSelectModule, MatFormFieldModule, MatInputModule, MatButtonToggleModule, MatToolbarModule, MatButtonModule, MatCardModule, MatListModule, MatIconModule, MatMenuModule, MatSidenavModule, MatExpansionModule, MatDialogModule, MatSlideToggleModule } from '@angular/material';
 
 import { SignaturePadModule } from 'angular2-signaturepad';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 
 @NgModule({
   declarations: [
@@ -35,7 +34,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CallbackComponent,
     NewLogComponent,
     MenuHeader
-    
   ],
   imports: [
     BrowserModule,
@@ -56,11 +54,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatIconModule,
     MatMenuModule,
     BrowserAnimationsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatExpansionModule,
+    MatDialogModule,
+    MatSlideToggleModule
   ],
-  exports: [
-
-  ],
+  entryComponents: [NewLogComponent],
   providers: [AuthService, ApiService, AlertsService, IsAuthenticatedGuard],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]

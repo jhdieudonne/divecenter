@@ -12,7 +12,6 @@
     "build_client_prod": "ng build --environment=prod --target=production --aot=false",
     "webpack-dev-server": "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
-    "server:dev": "npm run webpack-dev-server -- --config config/webpack.dev.js --open --progress --profile --watch --content-base src/"
   },
   "private": true,
   "dependencies": {

@@ -1,6 +1,7 @@
 main {
-  background-color: #efefef;
-  height: 100%;
+  padding-left: 300px;
+  padding-top: 30px;
+  padding-right: 300px;
 }
 
 .mat-sidenav {
@@ -12,8 +13,4 @@ main {
 .mat-sidenav-container {
   height: 100%;
   flex: 1 1 auto;
-}
-
-.mat-drawer-backdrop.mat-drawer-shown {
-  background-color: red;
 }

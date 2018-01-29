@@ -71,7 +71,7 @@ body {
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
 $candy-app-primary: mat-palette($mat-blue, 500, 200, 800);
-$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$candy-app-accent:  mat-palette($mat-deep-orange, 500, 50, 300);
 
 // The warn palette is optional (defaults to red).
 // $candy-app-warn:    mat-palette($mat-blue);
@@ -84,8 +84,40 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
 // that you are using.
 @include angular-material-theme($candy-app-theme);
 
+@mixin matdesign($candy-app-theme) {
+
+  .mat-button-toggle {
+    background-color: mat-color($candy-app-primary);
+    color: mat-color($candy-app-primary, default-contrast);
+    width: 100%;
+  }
+
+  .mat-button-toggle-checked {
+    background-color: mat-color($candy-app-accent);
+    color: mat-color($candy-app-accent, default-contrast);
+  }
+}
+
+@include matdesign($candy-app-theme);
+
+
+
 app-root {
   display: flex;
   flex-flow: column;
   height: 100%;
+}
+
+.mat-drawer-backdrop.mat-drawer-shown {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+mat-dialog-container {
+  padding:0;
+}
+
+
+.dialgWithoutPadding mat-dialog-container {
+  padding:0;
 }
