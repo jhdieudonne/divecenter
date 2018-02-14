@@ -1,35 +1,57 @@
 <div class='menu'><span mat-dialog-title>Nouveau gonflage<span class='action'><mat-icon (click)='close()'>close</mat-icon></span></span></div>
-<div class='content' [formGroup]="log">
-    <mat-button-toggle-group formControlName='gaz' #gaz>
-        <mat-button-toggle  value='air'><div class='max_button'>Air</div></mat-button-toggle>
-        <mat-button-toggle  value='nitrox'><div class='max_button'>Nitrox</div></mat-button-toggle>
-        <mat-button-toggle value='trimix'><div class='max_button'>Trimix</div></mat-button-toggle>
-    </mat-button-toggle-group>
-    <div class='row' *ngIf="log.get('gaz').value!=='air'">
-        <mat-form-field>
-            <input matInput type="number" placeholder="Pourcentage O2" formControlName="o2" min="1" max="99"/><span matSuffix> %</span>
-            <mat-error *ngIf="log.get('o2')?.invalid">Le pourcentage d'O2 doit être compris entre 1 et 99</mat-error>
-        </mat-form-field>
-        <mat-slide-toggle>Top-Off seulement</mat-slide-toggle>
+<mat-dialog-content [formGroup]="log">
+    <div class='container'>
+        <mat-button-toggle-group formControlName='gaz' #gaz class='row d-flex'>
+                    <div class='col-sm-4'><mat-button-toggle value='air'><div class='max_button'>Gonflage Air</div></mat-button-toggle></div>
+                    <div class='col-sm-4'><mat-button-toggle value='nitrox'><div class='max_button'>Gonflage Nitrox</div></mat-button-toggle></div>
+                    <div class='col-sm-4'><mat-button-toggle value='trimix'><div class='max_button'>Mélange</div></mat-button-toggle></div>
+        </mat-button-toggle-group>
+        <div class='row'>
+            <app-blenderTool *ngIf="log.get('gaz').value=='trimix'" class="col" [log]="this.log"></app-blenderTool>
+        </div>
+        <div class='row'>
+            <div class='col-md-4'>
+                <mat-form-field class='w-100'>
+                    <mat-select placeholder="Destination du gonflage" md-form form-sm formControlName='destination'>
+                        <mat-option value='customer'>Client</mat-option>
+                        <mat-option value='customer'>Client anonyme</mat-option>
+                        <mat-option value='training'>Formation</mat-option>
+                        <mat-option value='training'>Divers</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class='row'>
+                <div class='col-md-6'>
+                    <mat-form-field><input matInput placeholder="Tel fixe/mobile"/></mat-form-field><mat-form-field><input matInput placeholder="Email"/></mat-form-field>
+                </div>
+            </div>
+        <div class='row'>
+            <div class='col-md-6'>
+                <mat-form-field><input matInput placeholder="Nom"/></mat-form-field><mat-form-field><input matInput placeholder="Prénom"/></mat-form-field>
+            </div>
+        </div>
+        <div class='row' *ngIf="log.get('gaz').value!='trimix'">
+                <div class='col'>
+                    <mat-slide-toggle>Top-Off seulement</mat-slide-toggle>
+                </div>
+            </div>
+        <div class='row'>
+            <div class='col-md-3 align-self-center'><mat-slide-toggle>300B</mat-slide-toggle></div>
+            <div class='col-md-3 align-self-center'><mat-slide-toggle>Twin</mat-slide-toggle></div>
+            <div class='col-md-6 align-self-center'>
+                <mat-form-field *ngIf="this.data.bottle">
+                    <mat-select placeholder="Taille de la bouteille" md-form form-sm formControlName="bottleId">
+                        <ng-template ngFor let-el [ngForOf]="this.data.bottle[0]">
+                            <mat-option value="{{el.id}}">{{el.size}}</mat-option>
+                        </ng-template>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <!-- <signature-pad class="w-100" #signaturePad [options]="signaturePadOptions" (onEndEvent)="drawComplete()"
+        *ngIf="log.get('destination').value=='customer' && log.get('gaz').value!='air'"></signature-pad> -->
     </div>
-    <div class='row'>
-        <mat-slide-toggle>300B</mat-slide-toggle>
-        <mat-slide-toggle>Twin</mat-slide-toggle>
-        <mat-form-field *ngIf="this.data.bottle">
-                <mat-select placeholder="Taille de la bouteille" md-form form-sm formControlName="bottleId">
-                    <ng-template ngFor let-el [ngForOf]="this.data.bottle[0]">
-                        <mat-option value="el.id">{{el.size}}</mat-option>
-                    </ng-template>
-                </mat-select>
-            </mat-form-field>
-    </div>
-    <mat-form-field class='w-100'>
-        <mat-select placeholder="Destination du gonflage" md-form form-sm formControlName='destination'>
-            <mat-option value='customer'>Client</mat-option>
-            <mat-option value='club'>Club</mat-option>
-            <mat-option value='training'>Formation</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <signature-pad class="w-100" #signaturePad [options]="signaturePadOptions" *ngIf="log.get('destination').value=='customer'"></signature-pad>
-
-</div>
+</mat-dialog-content>
+<mat-dialog-actions><button mat-raised-button color="primary" (click)='createLog()'>Ajouter</button></mat-dialog-actions>

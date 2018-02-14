@@ -1,7 +1,7 @@
-main {
-  padding-left: 300px;
-  padding-top: 30px;
-  padding-right: 300px;
+@media (min-width: 768px) {
+  main {
+    padding-top: 30px;
+  }
 }
 
 .mat-sidenav {

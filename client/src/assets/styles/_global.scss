@@ -1,0 +1,64 @@
+
+
+@import '~@angular/material/theming';
+// Plus imports for other components in your a pp.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$candy-app-primary: mat-palette($mat-blue, 500, 200, 800);
+$candy-app-accent:  mat-palette($mat-deep-orange, 500, 50, 300);
+
+// The warn palette is optional (defaults to red).
+// $candy-app-warn:    mat-palette($mat-blue);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($candy-app-theme);
+
+@mixin matdesign($candy-app-theme) {
+  .mat-button-toggle-group {
+    box-shadow: none!important;
+    margin-bottom: 15px;
+  }
+
+  .mat-button-toggle {
+    color: #efefef;
+    border: 1px solid #efefef;
+    border-radius: 5px;
+    display: block;
+    padding: 1px 0;
+  }
+
+  .mat-button-toggle-checked {
+    background-color: white;
+    color: mat-color($candy-app-primary);
+    border: 1px solid mat-color($candy-app-primary);
+  }
+
+  .mat-button-toggle-label {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+
+  .mat-button-toggle-label-content {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 !important;
+  }
+
+  .mat-button-toggle-checked  .mat-button-toggle-focus-overlay {
+    background-color: rgba(0,0,0,0)!important;
+  }
+}
+
+@include matdesign($candy-app-theme);

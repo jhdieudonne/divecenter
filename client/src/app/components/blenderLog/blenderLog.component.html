@@ -1,26 +1,26 @@
-<div class="container">
-
-    <div class="infoDate">Aujourd'hui</div>
-    <mat-accordion>
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-            <mat-panel-title>
-                Personal data
-            </mat-panel-title>
-            <mat-panel-description>
-                Type your name and age
-            </mat-panel-description>
-            </mat-expansion-panel-header>
-        
-            <mat-form-field>
-            <input matInput placeholder="First name">
-            </mat-form-field>
-        
-            <mat-form-field>
-            <input matInput placeholder="Age">
-            </mat-form-field>
-        </mat-expansion-panel>
-    </mat-accordion>
+<div class="loading" *ngIf="loading">Chargement en cours...</div>
+<div class="container" *ngIf="!loading">
+    <ng-template ngFor let-logs let-i="index" [ngForOf]="this.sortedLog">
+        <div class="infoDate" *ngIf="logs.length && i==0">Aujourd'hui</div>
+        <div class="infoDate" *ngIf="logs.length && i==1">Hier</div>
+        <div class="infoDate" *ngIf="logs.length && i==2">Ce mois-ci</div>
+        <div class="infoDate" *ngIf="logs.length && i==3">Le mois précédent</div>
+        <mat-accordion displayMode='flat'>
+            <mat-expansion-panel *ngFor="let log of logs; let j = index" >
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span *ngIf="log.gaz=='air'">Gonflage air</span>
+                    <span *ngIf="log.gaz=='nitrox'">Gonflage Nitrox ({{log.o2}}%)</span>
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{log.createdt|date:i<2?'shortTime':'short'}} <mat-icon class='deleteIcon' (click)="deleteLog(log.id, i,j)">delete</mat-icon>
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+            
+                <img *ngIf="log.signature" [src]="'data:image/png;base64,'+log.signature" />
+            </mat-expansion-panel>
+        </mat-accordion>
+    </ng-template>
 
     <div class="containerButtonNew">
             <div class="buttonNew" (click)="openDialog()"><img src='../assets/icon/plus_white_24dp.png'></div>

@@ -5,11 +5,13 @@ export default class GenericRouter {
     router: Router;
     ds: any;
     kind: string;
+    not_indexed: string[];
 
-    constructor(object: string) {
+    constructor(object: string, not_indexed?: string[]) {
         this.router = Router();
         this.init();
         this.kind = object;
+        this.not_indexed = not_indexed != null ? not_indexed : [];
       }
 
     create(req: Request, res: Response, next: NextFunction) {
@@ -20,7 +22,7 @@ export default class GenericRouter {
           return;
         }
         res.status(200).json(data.id);
-      })
+      }, this.not_indexed);
     }
 
     get(req: Request, res: Response, next: NextFunction) {
@@ -62,9 +64,9 @@ export default class GenericRouter {
           next(err);
           return;
         } else if (result.indexUpdates === 0) {
-          res.status(404).end('NOT_FOUND');
+          res.status(404).end(JSON.stringify({status: 'NOT_FOUND'}));
         } else {
-          res.status(200).end('OK');
+          res.status(200).end(JSON.stringify({status: 'OK'}));
         }
       });
     }

@@ -37,7 +37,9 @@ export class GenericModel {
     }
 
     public list(cb: any, limit: number = -1, order: string = '', start: string = '') {
-        const q: Query = this.ds.createQuery(this.kind).limit(100);
+        const q: Query = this.ds.createQuery(this.kind).limit(1000).order('createdt', {
+            descending: true,
+          });
 
         this.ds.runQuery(q, (err, entities: any, nextQuery) => {
             const hasMore = nextQuery.moreResults !== Datastore.NO_MORE_RESULTS ? nextQuery.endCursor : false;
@@ -54,6 +56,7 @@ export class GenericModel {
         this.ds.save(
           entity,
           (err) => {
+              console.log(err);
             data.id = entity.key.id;
             cb(err, err ? null : data);
           }

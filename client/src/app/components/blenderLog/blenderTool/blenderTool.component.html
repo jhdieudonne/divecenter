@@ -1,0 +1,43 @@
+<div class='container'>
+  <div class='row blenderToolItem'>
+    <div class='col-6 col-sm-4 p-2 '>
+      <div class='header'>Mix Désiré</div>
+      <div class='content'>
+        <app-blenderMix (cascade)="this.calculateMelangeGas()" [log]="this.log" type='result'></app-blenderMix>
+      </div>
+    </div>
+    <div class='col-6 col-sm-4 p-2'>
+      <div class='header'>Mix Résiduel</div>
+      <div class='content'>
+        <app-blenderMix (cascade)="this.calculateMelangeGas()" [log]="this.log" type='init'></app-blenderMix>
+      </div>
+    </div>
+
+    <div class='col-12 col-sm-4 p-2'>
+      <div class='blenderToolResult'>
+        <div class='header'>Variations et limites</div>
+        <div class='content p-3'>
+          <div class='row'>
+            <div class='col-4'>O2</div><div class='col-8 text-right'>{{this.melangeGas[0]|number:'0.0-1'}} bar</div>
+          </div>
+          <div class='row'>
+              <div class='col-4'>Air</div><div class='col-8 text-right'>{{this.melangeGas[1]|number:'0.0-1'}} bar</div>
+          </div>
+          <div class='row'>
+              <div class='col-4'>He</div><div class='col-8 text-right'>{{this.melangeGas[2]|number:'0.0-1'}} bar</div>
+          </div>
+          <br/>
+          <div class='row'>
+              <div class='col-7'>Limite 1.4</div><div class='col-5 text-right'>{{this.melangeGas[3]|number:'0.0-1'}} m</div>
+          </div>
+          <div class='row'>
+              <div class='col-7'>Limite 1.6</div><div class='col-5 text-right'>{{this.melangeGas[4]|number:'0.0-1'}} m</div>
+          </div>
+          <div class='row'>
+              <div class='col-6'>Min.</div><div class='col-6 text-right'>{{this.melangeGas[5]|number:'0.0-1'}} m</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

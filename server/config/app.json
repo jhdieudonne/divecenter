@@ -1,11 +1,11 @@
 {
   "default": {
-    "port": "8080",
+    "port": "8090",
     "portweb": "443",
     "secret": "I wanna be the very best, like no one ever was !",
     "cors": {
       "origin": [
-        "http://localhost:8080",
+        "http://localhost:8090",
         "http://localhost:4200",
         "http://localhost:4300"
       ]

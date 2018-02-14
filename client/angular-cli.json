@@ -25,6 +25,11 @@
       "scripts": [
         "../node_modules/chart.js/dist/Chart.js",
         "../node_modules/hammerjs/hammer.min.js"],
+      "stylePreprocessorOptions": {
+          "includePaths": [
+              "assets/styles"
+          ]
+      },
       "environmentSource": "environments/environment.ts",
         "environments": {
         "dev": "environments/environment.ts",

@@ -14,6 +14,29 @@ import * as session from 'express-session';
 // import {RequestLogger} from './middlewares/requestLogger';
 // import {Security} from './middlewares/security';
 
+const jwt = require('express-jwt');
+const jwtAuthz = require('express-jwt-authz');
+const jwksRsa = require('jwks-rsa');
+
+// Authentication middleware. When used, the
+// access token must exist and be verified against
+// the Auth0 JSON Web Key Set
+const checkJwt = jwt({
+  // Dynamically provide a signing key
+  // based on the kid in the header and 
+  // the signing keys provided by the JWKS endpoint.
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://divecenter.eu.auth0.com/.well-known/jwks.json`
+  }),
+  audience: 'https://api.divecenter.com',
+  // Validate the audience and the issuer.
+  issuer: `https://divecenter.eu.auth0.com/`,
+  algorithms: ['RS256']
+});
+
 /**
  * Creates and configures an ExpressJS web server.
  */

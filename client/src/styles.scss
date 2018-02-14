@@ -1,3 +1,5 @@
+@import 'global';
+
 html, body, app-root2 {
   height: 100%;
 }
@@ -58,50 +60,6 @@ body {
   z-index: 2000;
 }
 
-
-@import '~@angular/material/theming';
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat-core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue.
-$candy-app-primary: mat-palette($mat-blue, 500, 200, 800);
-$candy-app-accent:  mat-palette($mat-deep-orange, 500, 50, 300);
-
-// The warn palette is optional (defaults to red).
-// $candy-app-warn:    mat-palette($mat-blue);
-
-// Create the theme object (a Sass map containing all of the palettes).
-$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($candy-app-theme);
-
-@mixin matdesign($candy-app-theme) {
-
-  .mat-button-toggle {
-    background-color: mat-color($candy-app-primary);
-    color: mat-color($candy-app-primary, default-contrast);
-    width: 100%;
-  }
-
-  .mat-button-toggle-checked {
-    background-color: mat-color($candy-app-accent);
-    color: mat-color($candy-app-accent, default-contrast);
-  }
-}
-
-@include matdesign($candy-app-theme);
-
-
-
 app-root {
   display: flex;
   flex-flow: column;
@@ -119,6 +77,83 @@ mat-dialog-container {
 }
 
 
-.dialgWithoutPadding mat-dialog-container {
+.dialogWithoutPadding mat-dialog-container {
   padding:0;
+}
+
+.percent .mat-input-infix {
+  width: 24px;
+}
+
+.freeWidth .mat-input-infix {
+  width: auto;
+}
+
+.mat-card-header {
+  flex-direction: row;
+    justify-content: center;
+}
+
+.mat-card {
+  padding:0!important;
+}
+
+.mat-card-content {
+  padding-top: 10px;
+  padding-bottom: 10px
+}
+
+@media (max-width: 768px) {
+  .dialogWithoutPadding {
+    height: 100vh;
+    min-width: 100vw!important;
+  }
+
+  .dialogWithoutPadding mat-dialog-content {
+    max-height: max-content;
+  }
+}
+
+
+.gauge {
+  .mat-slider-vertical {
+    min-height: 120px;
+    .mat-slider-wrapper {
+      left: 11px;
+    }
+    .mat-slider-thumb {
+      border-radius:0;
+      right:-38px;
+      width:53px;
+      height:5px;
+      bottom:-5px;
+    }
+    .mat-slider-track-wrapper {
+      width: 26px;
+      .mat-slider-track-background {
+        width: 26px;
+      }
+      .mat-slider-track-fill {
+        width: 26px;
+      }
+    }
+  }
+  .o2 .mat-slider-track-fill {
+    background-color:#28a745;
+  }
+  .n2 .mat-slider-track-fill {
+    background-color:#007bff;
+  }
+  .he .mat-slider-track-fill {
+    background-color:#ffc107;
+  }
+}
+
+.noPaddingFormField {
+  .mat-form-field-wrapper {
+    padding-bottom: 0em;
+  }
+  .mat-form-field-underline {
+    bottom: 0em;
+  }
 }

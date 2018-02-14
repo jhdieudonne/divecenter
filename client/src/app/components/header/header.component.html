@@ -3,19 +3,18 @@
         <mat-icon>menu</mat-icon>
         Dive Center
     </span>
-
-    <menu-header link='/' icon="home" title='Home'></menu-header>
-    <menu-header link='/blenderLog' title='Log Gonflage'></menu-header>
-    <menu-header link='/customers' title='Gestion clients'></menu-header>
-
-    <!-- This fills the remaining space of the current row -->
-    <span class="filler"></span>
-    
-    <span class="avatar">
-        
-        <a class="nav-link" ><img [src]='this.profile.picture' [matMenuTriggerFor]="menu" yPosition="below" *ngIf='this.profile&&this.profile.picture'/></a>
-        <mat-menu #menu="matMenu"  [overlapTrigger]="false">
-                <button mat-menu-item (click)='this.logout()' >Se déconnecter</button>
-              </mat-menu>
-    </span>
+    <div class="d-none d-md-flex justify-content-start w-100">
+        <menu-header link='/' icon="home" title='Home'></menu-header>
+        <menu-header link='/blenderLog' title='Log Gonflage'></menu-header>
+        <menu-header link='/crm' title='Gestion clients'></menu-header>
+        <menu-header link='/logistic' title='Gestion matériel'></menu-header>
+       
+        <span class="avatar ml-auto">
+            
+            <a class="nav-link" ><img [src]='this.profile.picture' [matMenuTriggerFor]="menu" yPosition="below" *ngIf='this.profile&&this.profile.picture'/></a>
+            <mat-menu #menu="matMenu"  [overlapTrigger]="false">
+                    <button mat-menu-item (click)='this.logout()' >Se déconnecter</button>
+                </mat-menu>
+        </span>
+    </div>
 </mat-toolbar>

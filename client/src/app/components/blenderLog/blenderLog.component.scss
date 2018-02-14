@@ -28,7 +28,29 @@
     margin-top: 5px;
 }
 
+.infoDate:not(:first-child) {
+  margin-top: 30px;
+}
+
 .mat-button-toggle-label-content {
     width: 100%;
-    padding: 0;
+    //padding: 0;
   }
+
+.mat-expansion-panel-header {
+  color: black;
+
+}
+
+mat-panel-description {
+  display:block;
+}
+
+.deleteIcon {
+  float:right;
+  cursor: pointer;
+}
+
+.deleteIcon:hover {
+  color: red;
+}

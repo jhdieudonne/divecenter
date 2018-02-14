@@ -1,0 +1,17 @@
+<div class='row justify-content-center' [formGroup]="log">
+  <mat-form-field class='freeWidth'>
+      <input matInput type="number" [formControlName]="'pressure_'+type"
+      (keyup)="this.cascade.emit()" min="0" max="999"/><span matSuffix> bar</span>
+  </mat-form-field>
+</div>
+<div class='row'>
+  <div class='col-md-4'>
+      <app-blenderGauge [log]="this.log" name='o2' [type]='type' (cascadeChange)="cascadeChange($event)"></app-blenderGauge>
+  </div>
+  <div class='col-md-4'>
+    <app-blenderGauge [log]="this.log" name='n2' [type]='type' (cascadeChange)="cascadeChange($event)"></app-blenderGauge>
+  </div>
+  <div class='col-md-4'>
+    <app-blenderGauge [log]="this.log" name='he' [type]='type' (cascadeChange)="cascadeChange($event)"></app-blenderGauge>
+  </div>
+</div>

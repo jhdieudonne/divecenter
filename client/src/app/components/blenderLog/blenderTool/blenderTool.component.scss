@@ -1,0 +1,25 @@
+@import 'global';
+
+@media (min-width: 768px) {
+    .blenderToolItem >div:nth-child(1) {
+        border-radius: 2% 0 0 2%;
+        border: 1px solid mat-color($candy-app-primary);
+    }
+    
+    .blenderToolItem >div:nth-child(2) {
+        border-top: 1px solid mat-color($candy-app-primary);
+        border-bottom: 1px solid mat-color($candy-app-primary);
+    
+    }
+    
+    .blenderToolItem >div:nth-child(3) {
+        border-radius: 0 2% 2% 0;
+        border: 1px solid mat-color($candy-app-primary);
+    }
+    
+  }
+
+.header {
+    text-align: center;
+    color: mat-color($candy-app-primary);
+}

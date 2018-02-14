@@ -1,34 +1,30 @@
 
 .max_button {
-    width: 200px;
-    height: 50px;
     text-align: center;
 }
-.content {
+mat-dialog-content {
     display: flex;
     flex-direction: column;
 }
 
-.content>*:not(:first-child) {
+mat-dialog-content>*:not(:first-child) {
     margin-top: 20px;
 }
-
-
 
 signature-pad {
     text-align: center;
 }
 
-.content {
+mat-dialog-content {
     padding-left: 24px;
     padding-right: 24px;
+    margin: 0;
 }
 
 .menu {
     background-color: #0077c2;;
     padding: 5px;
     color: white;
-    margin-bottom:20px;
 }
 
 .menu span {
@@ -39,4 +35,10 @@ signature-pad {
 .menu .action {
     float:right;
     cursor: pointer;
+}
+
+.mat-dialog-actions:last-child {
+    margin: 0;
+    text-align: center;
+    display:block;
 }

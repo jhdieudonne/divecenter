@@ -1,0 +1,10 @@
+<div class="gauge" [formGroup]="log">
+  <mat-form-field class="percent noPaddingFormField">
+      <input type="number" matInput min='0' max='100' #input [placeholder]="name|titlecase" [value]="log.get(name+'_'+type)?.value" 
+      (keyup)="this.cascadeChange.emit([name, type, input.value])"/><span matSuffix> %</span>
+  </mat-form-field>
+  <mat-slider class="d-none d-md-inline-block gauge o2" 
+  [class.o2]="name=='o2'" [class.n2]="name=='n2'"  [class.he]="name=='he'" 
+  [formControlName]="name+'_'+type" min='0' max="100" step='1' #slider [value]="log.get(name+'_'+type)?.value"
+  (input)="this.cascadeChange.emit([name, type, slider.value])" thumbLabel='true' vertical='true'></mat-slider>
+</div>
