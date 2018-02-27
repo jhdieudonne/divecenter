@@ -14,22 +14,15 @@
                 <mat-form-field class='w-100'>
                     <mat-select placeholder="Destination du gonflage" md-form form-sm formControlName='destination'>
                         <mat-option value='customer'>Client</mat-option>
-                        <mat-option value='customer'>Client anonyme</mat-option>
+                        <mat-option value='anonym'>Client anonyme</mat-option>
                         <mat-option value='training'>Formation</mat-option>
-                        <mat-option value='training'>Divers</mat-option>
+                        <mat-option value='misc'>Divers</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
         </div>
-        <div class='row'>
-                <div class='col-md-6'>
-                    <mat-form-field><input matInput placeholder="Tel fixe/mobile"/></mat-form-field><mat-form-field><input matInput placeholder="Email"/></mat-form-field>
-                </div>
-            </div>
-        <div class='row'>
-            <div class='col-md-6'>
-                <mat-form-field><input matInput placeholder="Nom"/></mat-form-field><mat-form-field><input matInput placeholder="Prénom"/></mat-form-field>
-            </div>
+        <div class='row' *ngIf="log.get('destination').value=='customer'">
+            <app-cust-box></app-cust-box>
         </div>
         <div class='row' *ngIf="log.get('gaz').value!='trimix'">
                 <div class='col'>

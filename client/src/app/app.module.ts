@@ -37,6 +37,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BlenderGaugeComponent } from './components/blenderLog/blenderTool/blenderGauge/blenderGauge.component';
 import { BlenderMixComponent } from './components/blenderLog/blenderTool/blenderMix/blenderMix.component';
 import { BlenderToolComponent } from './components/blenderLog/blenderTool/blenderTool.component';
+import { CustBoxComponent } from './modules/crm/cust-box/cust-box.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { BlenderToolComponent } from './components/blenderLog/blenderTool/blende
     MaterialComponent,
     BlenderGaugeComponent,
     BlenderMixComponent,
-    BlenderToolComponent
+    BlenderToolComponent,
+    CustBoxComponent
   ],
   imports: [
     BrowserModule,

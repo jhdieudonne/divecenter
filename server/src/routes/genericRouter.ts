@@ -1,5 +1,7 @@
 import {NextFunction, Request, Response, Router} from 'express';
-import { GenericModel } from '../models/generic';
+//import { GenericModel } from '../models/generic';
+import { GenericModelMySQL } from '../models/genericMySQL';
+
 
 export default class GenericRouter {
     router: Router;
@@ -15,7 +17,7 @@ export default class GenericRouter {
       }
 
     create(req: Request, res: Response, next: NextFunction) {
-      const sm: GenericModel = new GenericModel(this.kind);
+      const sm: GenericModelMySQL = new GenericModelMySQL();
       sm.create(req.body, (err: any, data: any) => {
         if (err) {
           next(err);
@@ -26,7 +28,7 @@ export default class GenericRouter {
     }
 
     get(req: Request, res: Response, next: NextFunction) {
-      const sm: GenericModel = new GenericModel(this.kind);
+      const sm: GenericModelMySQL = new GenericModelMySQL(this.kind);
       sm.get(parseInt(req.params.id, 10), (err: any, data: any) => {
         if (err) {
           console.log(err);
@@ -42,7 +44,7 @@ export default class GenericRouter {
     }
 
     list(req: Request, res: Response, next: NextFunction) {
-      const sm: GenericModel = new GenericModel(this.kind);
+      const sm: GenericModelMySQL = new GenericModelMySQL(this.kind);
       sm.list((err: any, entities: any, cursor: any) => {
         if (err) {
           console.log(err);
@@ -58,7 +60,7 @@ export default class GenericRouter {
     }
 
     delete(req: Request, res: Response, next: NextFunction) {
-      const sm: GenericModel = new GenericModel(this.kind);
+      const sm: GenericModelMySQL = new GenericModelMySQL();
       sm.delete(parseInt(req.params.id, 10), (err: any, result: any) => {
         if (err) {
           next(err);

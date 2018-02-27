@@ -7,11 +7,11 @@ export class ApiRouter {
   constructor() {
     this.router = Router();
     const shopRouter = new genericRouter('shop');
-    const blenderLogRouter = new genericRouter('blenderLog', ['signature']);
-    const bottleRouter = new genericRouter('bottle');
+    const blenderLogRouter = new genericRouter('blender-blenderMix', ['signature']);
+    const bottleRouter = new genericRouter('blender-bottle');
     this.router.use('/shop', shopRouter.router);
-    this.router.use('/blenderLog', blenderLogRouter.router);
-    this.router.use('/bottle', bottleRouter.router);
+    this.router.use('/blender-blenderMix', blenderLogRouter.router);
+    this.router.use('/blender-bottle', bottleRouter.router);
   }
 }
 

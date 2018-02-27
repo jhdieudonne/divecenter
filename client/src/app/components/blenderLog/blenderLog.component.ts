@@ -21,10 +21,10 @@ export class BlenderLogComponent {
 
   constructor(private api: ApiService, public dialog: MatDialog, private datePipe:DatePipe) {
     this.loading=true;
-    api.list('blenderLog').subscribe((payload) => {
+    api.list('blender-blenderMix').subscribe((payload) => {
       this.blenderLog = payload;
       this.parseLogByDate();
-      api.list('bottle').subscribe((payload) => {
+      api.list('blender-bottle').subscribe((payload) => {
         this.bottle = payload;
         this.prepareKeys();
         this.loading=false;
